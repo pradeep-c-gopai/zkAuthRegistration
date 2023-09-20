@@ -1,0 +1,61 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-top: 5cm;
+  }
+  .But1{
+ 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+   
+
+  }
+  label {
+    margin-right: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button[type="button"] {
+    padding: 5px;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+
+  }
+  
+  button[type="button"]:hover {
+    background-color: #006A8E;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #008CBA;
+    color: #fff;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

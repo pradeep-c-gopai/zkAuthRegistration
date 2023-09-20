@@ -1,0 +1,316 @@
+.navbar_container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://uploads-ssl.webflow.com/5e97941735e37a5ef19d10aa/63dba713a3e0ee3528785eb2_hero-header-section%201x.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.navbar_contain {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: self-start;
+  padding-top: 30px;
+}
+
+.navbar_logo {
+  flex: 1;
+}
+
+.dropdown-menu {
+  flex: 6;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+}
+
+.dropdown-menu li {
+  display: inline-block;
+  position: relative;
+  padding: 0rem 1.5rem;
+  cursor: pointer;
+}
+
+.dropdown-menu li {
+  padding: 0rem 1.5rem;
+  cursor: pointer;
+}
+
+.sub-menu {
+  background-color: #18181b;
+  box-shadow: 0 10px 25px -2px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(16, 24, 40, 0.03);
+  position: absolute;
+  padding: 25px;
+  border-radius: 5px;
+  margin-top: 1px;
+  z-index: 999;
+}
+
+.sub-menu {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sub-menu svg {
+  color: #0063f7;
+}
+
+.navbarList{
+   display: flex;
+   align-items: center;
+}
+
+.dropdownList {
+   padding: 1rem;
+   flex: 49%;
+   margin-bottom: 5px;
+   display: flex;
+   white-space: nowrap;
+   align-items: center;
+}
+
+.dropdownList:hover {
+   background-color: #27272a;
+   border-radius: 5px;
+}
+
+.dropdownList1 {
+   padding: 1rem;
+   flex: 49%;
+   margin-bottom: 5px;
+   display: flex;
+   white-space: nowrap;
+   align-items: center;
+}
+
+.dropdownList1:hover {
+   background-color: #27272a;
+   border-radius: 5px;
+}
+
+.textDiv{
+   margin-left: 10px;
+}
+
+.textDiv > div:nth-child(1) {
+  font-size: 16px;
+}
+
+.textDiv > div:nth-child(2) {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+
+.dropdown-menu li:hover .sub-menu {
+  display: flex;
+}
+
+.sub-menu:hover {
+  display: flex;
+}
+
+.button-nav {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 80px;
+  background-color: #0063f7;
+  transition: 150ms;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button-nav:hover {
+  background-color: white;
+  color: black;
+}
+
+
+.Homepage{
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   padding: 5rem 0rem;
+}
+
+.Homepage > div {
+  flex: 1;
+}
+
+.Homepage > div:nth-child(2) {
+   /* border: 1px solid red; */
+   padding-left: 10px;
+}
+
+.Text1{
+   font-size: 3rem;
+   line-height: 1.1;
+   margin-bottom: 10px;
+}
+
+.Text2{
+   margin-bottom: 4px;
+   font-size: 1.25rem;
+   line-height: 1.875rem;
+   white-space: break-spaces;
+}
+
+.buttonDiv{
+   margin-top: 20px;
+}
+
+.buttonDiv button{
+   padding: 1rem 2rem;
+   border-radius: 999px;
+   transition: 150ms;
+   font-size: 1rem;
+   line-height: 1.5rem;
+   font-weight: 500;
+   border: none;
+   cursor: pointer;
+}
+
+.button1{
+   background-color: #0063f7;
+   color: white;
+   margin-right: 20px;
+}
+
+.button1:hover {
+   background-color: #fff;
+   transform: translate(0,-4px);
+   color: #18181b;
+}
+
+
+.button2{
+   background-color: white;
+   color: black;
+}
+
+.button2:hover {
+   background-color: black;
+   transform: translate(0,-4px);
+   color: white;
+}
+
+
+.useCaseContainer > div{
+   width: 80%;
+   display: flex;
+   margin: 0 auto;
+}
+
+.useCaseContain1{
+   width: 80%;
+   display: flex;
+   margin: 0 auto;
+   padding: 7rem 0rem;
+   margin-top: 0;
+   margin-bottom: 1.5rem;
+   color: #222;
+   font-size: 2.25rem;
+   line-height: 2.5rem;
+   font-weight: 600;
+}
+
+.useCaseContain2{
+   display: flex;
+}
+
+.Contain{
+   flex: 1;
+   padding: 0px 20px
+}
+
+.imgDiv img{
+   box-sizing: border-box;
+   max-width: 100%;
+}
+
+.text3{
+   font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 1rem 0rem;
+    letter-spacing: 1px;
+}
+
+.text4{
+   font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 1rem 0rem;
+    letter-spacing: 1px;
+}
+
+
+/* Prevent */
+
+.Prevent{
+   background-color: #fafafa;
+}
+
+.Prevent > div{
+   width: 80%;
+   margin: 0 auto;
+   padding: 5rem 0rem;
+
+   display: grid;
+   justify-items: start;
+   align-items: start;
+   grid-auto-columns: 1fr;
+   grid-column-gap: 3rem;
+   grid-row-gap: 4rem;
+   -ms-grid-columns: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
+   -ms-grid-rows: auto;
+   grid-template-rows: auto;
+}
+
+.PreventList{
+   width: 100%;
+   letter-spacing: 1px;
+   word-spacing: 1px;
+}
+
+.svgDiv img{
+  height: 80px;
+  width: 80px;
+}
+
+.text5{
+   font-size: 1.5rem;
+   line-height: 2rem;
+   font-weight: 700;
+   margin: 10px 0px;
+}
+
+.text6{
+   font-size: 1rem;
+   line-height: 1.5rem;
+   margin: 10px 0px;
+}
+
+.ModalStyle > div > div {
+   background-image: url("https://uploads-ssl.webflow.com/5e97941735e37a5ef19d10aa/63dba713a3e0ee3528785eb2_hero-header-section%201x.jpg");
+   color: white;
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   background-size: cover;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+

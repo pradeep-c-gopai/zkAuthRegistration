@@ -1,0 +1,23 @@
+const pool = require("../database");
+
+module.exports.notverified = async function(req,res){
+     var body = req.body;
+     var json_=JSON.stringify(body);
+     var jsonobj =(JSON.parse(json_));
+     console.log(jsonobj.name)
+
+   
+    var sql=`SELECT id,name,email,address1 FROM users WHERE isVerified = '0'`;
+     pool.query(sql,[],function(err,result){
+        
+        if(err){
+            throw err;
+        }
+        else{    
+            res.status(200).json({
+                result
+            });
+        }
+
+     })
+}

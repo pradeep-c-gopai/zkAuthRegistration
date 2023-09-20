@@ -1,0 +1,38 @@
+.header {
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f0f0; /* Replace with your desired background color */
+    background: url() center no-repeat;
+    background-size: cover;
+  }
+  
+  
+  .main-title {
+    font-size: 3rem;
+    margin-top: 3rem;
+    color: #000;
+  }
+  
+  .buttons {
+    margin-top: 3rem;
+  }
+  
+  .primary-button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .primary-button:hover {
+    background-color: #0069d9;
+  }
+  
+  #reg_btn {
+    margin-top: 2rem;
+  }
+  
