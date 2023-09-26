@@ -8,7 +8,7 @@ module.exports.approve = async function(req,res){
  
  
     var sql=`UPDATE users SET isVerified=true WHERE email = ?`;
-    var sql1=`SELECT address1 FROM users where email = ?`;
+    var sql1=`SELECT address FROM users where email = ?`;
      pool.query(sql,[jsonobj.email],function(err,result){
  
         if(err){
