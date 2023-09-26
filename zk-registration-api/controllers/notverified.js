@@ -7,7 +7,7 @@ module.exports.notverified = async function(req,res){
      console.log(jsonobj.name)
 
    
-    var sql=`SELECT id,name,email,address1 FROM users WHERE isVerified = '0'`;
+    var sql=`SELECT id,name,email,address FROM users WHERE isVerified = '0'`;
      pool.query(sql,[],function(err,result){
         
         if(err){
