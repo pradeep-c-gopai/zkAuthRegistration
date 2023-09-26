@@ -8,7 +8,7 @@ module.exports.studentRegister = async function(req,res){
     //  console.log('name ', jsonobj);
 
    
-     var sql = `SELECT * FROM users WHERE address1 = ?`;
+     var sql = `SELECT * FROM users WHERE address = ?`;
      pool.query(sql, [jsonobj.address], function(err, result) {
        if (err) {
          throw err;
@@ -19,7 +19,7 @@ module.exports.studentRegister = async function(req,res){
          });
        }
        else {
-         sql = `INSERT INTO users (name, email, isVerified, address1) VALUES (?,?,?,?);`;
+         sql = `INSERT INTO users (name, email, isVerified, address) VALUES (?,?,?,?);`;
          pool.query(sql, [jsonobj.name, jsonobj.email, 0, jsonobj.address], function(err, result) {
            if (err) {
              throw err;
