@@ -1,127 +1,73 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { IntType } from 'three';
+import { useState } from 'react';
+import axios from 'axios';
 import { QRCode } from "react-qr-svg";
- 
+
 const Claim = () => {
- 
- 
-  const [did, setDid] = useState("did:polygonid:polygon:mumbai:2qPKbX2SwyorS7j7ztNsHS1s6zZjpC1HnHg4X3NmBs");
-  const [date, setDate] = useState();
+  const [did, setDid] = useState("did:polygonid:polygon:mumbai:2qHB1Ct2CRvdWyrNgKsZEyEkyE3zDg2mFg3H9Tpgom");
+  const [date, setDate] = useState(2680532130);
   const [qrdata, setQrdata] = useState();
-  const [qrStatus,setqrcodeStatus]=useState(false);
-   // ... Fetch posts here
- 
-   // Handle posts request
-   const handleSubmit = (e) => {
-      e.preventDefault();
-       
-    //   setQrdata( {
-    //     "body": {
-    //         "credentials": [
-    //             {
-    //                 "description": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld#KYCAgeCredential",
-    //                 "id": "32cb839a-cde9-11ed-8e4f-0242c0a88005"
-    //             }
-    //         ],
-    //         "url": "https://self-hosted-platform.polygonid.me/v1/agent"
-    //     },
-    //     "from": "did:polygonid:polygon:mumbai:2qDaHQNNzu5Pw558Vt7XrRP68c3byz5FyZAwgpCBxe",
-    //     "id": "297fd97e-7fea-47a8-aa10-94ff38b7d9d3",
-    //     "thid": "297fd97e-7fea-47a8-aa10-94ff38b7d9d3",
-    //     "to": "did:polygonid:polygon:mumbai:2qMABv52PPocGcRUa3ndPQCX64mFsCAW7DxLhhxrba",
-    //     "typ": "application/iden3comm-plain-json",
-    //     "type": "https://iden3-communication.io/credentials/1.0/offer"
-    // })
+  const [qrStatus, setqrcodeStatus] = useState(false);
 
-
-
-      const username = 'user';
-      const password = 'password';
-      const encodedCredentials = btoa(`${username}:${password}`);
-      fetch('https://self-hosted-platform.polygonid.me/v1/did:polygonid:polygon:mumbai:2qNTibHbawkHgcjQhNbmuWiniJwQVbr5ydSTS7gaFd/claims', {
-         method: 'POST',
-         body: JSON.stringify({
-          "credentialSchema":"https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
-          "type": "KYCAgeCredential",
-          "credentialSubject": {
-              "id": did.toString(),
-              "birthday": 20000424,
-              "documentType": 2
-          },
-          "expiration": date.IntType
-      }),
-         headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Content-type': 'application/json; charset=UTF-8',
-            'Authorization': `Basic ${encodedCredentials}`
-         },
-      })
-      .then((res) => res.json())
-      .then((data) => {
-         console.log(data.id)
-         fetch(`https://self-hosted-platform.polygonid.me/v1/did:polygonid:polygon:mumbai:2qNTibHbawkHgcjQhNbmuWiniJwQVbr5ydSTS7gaFd/claims/${data.id}/qrcode`, {
-               method: 'GET',
-               headers: {
-                 'Content-Type': 'application/json',
-                 Accept: 'application/json',
-                 'Access-Control-Allow-Origin': '*',
-                 'Content-type': 'application/json; charset=UTF-8',
-                 'Authorization': `Basic ${encodedCredentials}`
-              },
-           }).then((res) =>  res.json()).then((datas) => {
-             console.log(datas);
-             setQrdata(datas)
-             setqrcodeStatus(true);
-           }).then( () => {
-            fetch(`https://self-hosted-platform.polygonid.me/v1/did:polygonid:polygon:mumbai:2qNTibHbawkHgcjQhNbmuWiniJwQVbr5ydSTS7gaFd/state/publish`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Content-type': 'application/json; charset=UTF-8',
-                'Authorization': `Basic ${encodedCredentials}`
-             },
-          }).then((res) =>  res.json()).then((datas) => {
-            console.log(datas);
-            
-  
-          })
-           })
-           .catch((err) => {
-              console.log(err.message);
-           }); 
-       })
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const username = 'user-issuer';
+    const password = 'password-issuer';
+    const encodedCredentials = btoa(`${username}:${password}`);
+    
+    axios.post('https://self-hosted-platform.polygonid.me/v1/did:polygonid:polygon:mumbai:2qHrYKQnNG5meeKnhMiPk5FqMs9MgdpPRrxsbfHsgD/claims', {
+      "credentialSchema": "https://raw.githubusercontent.com/vinodmalali/custom-schema-emp/main/proof-of-employee.json",
+      "type": "ProofOfEmployee",
+      "credentialSubject": {
+        "id": did.toString(),
+        "isEmployee": 1
+      },
+      "expiration": 2680532130
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${encodedCredentials}`
       }
+    }).then((response) => {
+      const dataId = response.data.id;
+      return axios.get(`https://self-hosted-platform.polygonid.me/v1/did:polygonid:polygon:mumbai:2qHrYKQnNG5meeKnhMiPk5FqMs9MgdpPRrxsbfHsgD/claims/${dataId}/qrcode`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${encodedCredentials}`
+        }
+      });
+    }).then((response) => {
+      setQrdata(response.data);
+      setqrcodeStatus(true);
 
+      
+    }).catch((err) => {
+      console.log(err.message);
+    });
+  }
 
-
-   return (
-      <div>
-         <form onSubmit={handleSubmit}>
-      <div>
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
           <label>Did:</label>
           <input type="text" value={did} onChange={(e) => setDid(e.target.value)} />
-      </div>
-      <div>
-        <label>Expiration date:</label>
-        <input type="text" value={date} onChange={(e) => setDate(e.target.value)} />
-      </div>
-            <button type="submit" >Create</button>
-         </form>
-         <div style={{paddingLeft:"200px" }}>
-          {qrStatus && <QRCode 
-            level="Q"
-            style={{ width: 256 }}
-            value={JSON.stringify(qrdata)}
-          />}
         </div>
+        <div>
+          <label>Expiration date:</label>
+          <input type="text" value={date} onChange={(e) => setDate(e.target.value)} />
+        </div>
+        <button type="submit">Create</button>
+      </form>
+      <div style={{ paddingLeft: "200px" }}>
+        {qrStatus && <QRCode
+          level="Q"
+          style={{ width: 256 }}
+          value={JSON.stringify(qrdata)}
+        />}
       </div>
-      
-   );
+    </div>
+  );
 };
 
 export default Claim;
